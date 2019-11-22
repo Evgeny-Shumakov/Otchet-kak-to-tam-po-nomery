@@ -1,0 +1,100 @@
+== Отчет №3
+:imagesdir: Pics
+
+== Задание 1
+. Диоды должы гореть раз в 500 мс
+. Сделать задержку на 500, 1000, 1500 мс через таймер вместо for
+
+Используем  32-битный таймер общего назначения TIM2, который будет генерировать событие "переполнение". Для этого сначала подключим библиотеку регистров TIM2.
+
+----
+#include "tim2registers.hpp" 
+----
+
+Затем сам TIM2
+
+----
+ RCC::APB1ENR::TIM2EN::Enable::Set();
+----
+
+И настроим  на генерацию переполнения
+
+----
+TIM2::CR1::URS::Overflow::Set(); 
+----
+
+Реализуем Delay через функцию void
+
+----
+void delay(std::uint32_t delay) //Realizacia zaderzhki
+{
+  TIM2::ARR::Write(16'000 *delay);
+  TIM2::SR::UIF::NoUpdate::Set();
+  TIM2::CNT::Write(0);
+  TIM2::CR1::CEN::Enable::Set();
+  while(TIM2::SR::UIF::NoUpdate::IsSet())
+    {
+    }
+};
+----
+Write(16'000 *delay) позволяет писать вместо delay нужное время задержки в милисекундах.
+
+Через функцию struct реализуем кнопку и включение/выключения диода функцией Tonggle
+
+----
+struct Button  //Realizuem knopku (chtobi nuzhno bilo tol'ko nazhimat')
+ {
+   static bool IsPressed() //Zadaem nazhatie
+   {
+     bool result = false;
+     if (GPIOC::IDR::IDR13::Low::IsSet() )
+     {
+       while (GPIOC::IDR::IDR13::Low::IsSet() )
+       {
+         result = true;
+       };
+     }
+     return result;
+   }
+ };
+
+template <typename Port, std::uint32_t pinNum> 
+struct Led //Realizacia perecluchenia cherez Toggle
+{
+  static void Toggle()
+  {
+    Port::ODR::Toggle(1<<pinNum);
+  }
+};
+----
+
+через using сокращаем обращение к диодам
+
+----
+using Led1 = Led<GPIOC,5>;
+using Led2 = Led<GPIOC,8>;
+using Led3 = Led<GPIOC,9>;
+using Led4 = Led<GPIOA,5>;
+----
+
+Основная программа будет выглядеть следующим образом
+
+----
+int main()
+{
+  for (; ;)
+  {
+      Led1::Toggle();
+      delay(500); //500 ms
+      Led2::Toggle(); 
+      delay(1000); //1000 ms
+      Led3::Toggle();
+      delay(1500); //1500 ms
+      Led4::Toggle();
+      delay(500); //500 ms
+  } 
+  return 0;
+}
+----
+
+

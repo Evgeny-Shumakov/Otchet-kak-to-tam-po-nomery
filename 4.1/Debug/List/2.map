@@ -1,0 +1,291 @@
+###############################################################################
+#
+# IAR ELF Linker V8.40.1.212/W32 for ARM                  19/Nov/2019  20:46:43
+# Copyright 2007-2019 IAR Systems AB.
+#
+#    Output file  =  C:\POIP Hub\4.1\Debug\Exe\2.out
+#    Map file     =  C:\POIP Hub\4.1\Debug\List\2.map
+#    Command line =
+#        -f C:\Users\User\AppData\Local\Temp\EWF806.tmp ("C:\POIP
+#        Hub\4.1\Debug\Obj\main.o" "C:\POIP Hub\4.1\Debug\Obj\startup.o"
+#        --no_out_extension -o "C:\POIP Hub\4.1\Debug\Exe\2.out" --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
+#        "C:\POIP Hub\4.1\Debug\List\2.map" --config "C:\POIP Hub\4.1\2_la.icf"
+#        --semihosting --entry __iar_program_start --vfe --enable_stack_usage
+#        --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** MESSAGES
+***
+
+Warning[Ls015]: [stack usage analysis] at least one function appears to be
+          uncalled. Example: "InterruptHandler::DummyHandler()". A complete
+          list of uncalled functions is in the map file.
+
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor        = *
+__CPP_Exceptions = Disabled
+__CPP_Language   = C++14
+__SystemLibrary  = DLib
+__dlib_version   = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x800'0000 { ro section .intvec };
+"P1":  place in [from 0x800'0000 to 0x807'ffff] { ro };
+define block CSTACK with size = 32, alignment = 8 { };
+define block HEAP with size = 0, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2001'ffff] {
+          rw, block CSTACK, block HEAP };
+
+No sections matched the following patterns:
+
+  rw  in "P2"
+
+
+  Section   Kind         Address   Size  Object
+  -------   ----         -------   ----  ------
+"A0":                              0xbc
+  .intvec   const     0x800'0000   0xbc  startup.o [1]
+                    - 0x800'00bc   0xbc
+
+"P1":                             0x2ac
+  .text     ro code   0x800'00bc   0x9a  main.o [1]
+  .text     ro code   0x800'0156    0x2  startup.o [1]
+  .text     ro code   0x800'0158   0x14  main.o [1]
+  .text     ro code   0x800'016c   0x10  main.o [1]
+  .text     ro code   0x800'017c   0x10  main.o [1]
+  .text     ro code   0x800'018c   0x18  main.o [1]
+  .text     ro code   0x800'01a4   0x14  main.o [1]
+  .text     ro code   0x800'01b8   0x14  main.o [1]
+  .text     ro code   0x800'01cc   0x14  main.o [1]
+  .text     ro code   0x800'01e0   0x14  main.o [1]
+  .text     ro code   0x800'01f4   0x14  main.o [1]
+  .text     ro code   0x800'0208   0x14  main.o [1]
+  .text     ro code   0x800'021c   0x10  main.o [1]
+  .text     ro code   0x800'022c   0x14  main.o [1]
+  .text     ro code   0x800'0240   0x12  main.o [1]
+  .text     ro code   0x800'0252    0x2  startup.o [1]
+  .text     ro code   0x800'0254    0xc  main.o [1]
+  .text     ro code   0x800'0260   0x10  main.o [1]
+  .text     ro code   0x800'0270    0xc  main.o [1]
+  .text     ro code   0x800'027c   0x12  main.o [1]
+  .rodata   const     0x800'028e    0x1  unwind_debug.o [5]
+  .text     ro code   0x800'0290   0x14  main.o [1]
+  .text     ro code   0x800'02a4    0xa  main.o [1]
+  .text     ro code   0x800'02ae    0xc  main.o [1]
+  .text     ro code   0x800'02ba    0xc  main.o [1]
+  .text     ro code   0x800'02c6    0xa  main.o [1]
+  .text     ro code   0x800'02d0   0x10  main.o [1]
+  .text     ro code   0x800'02e0   0x10  main.o [1]
+  .text     ro code   0x800'02f0   0x22  fpinit_M.o [3]
+  .text     ro code   0x800'0314   0x1e  cmain.o [4]
+  .text     ro code   0x800'0332    0x4  exit.o [2]
+  .text     ro code   0x800'0338    0xa  cexit.o [4]
+  .text     ro code   0x800'0344   0x14  exit.o [5]
+  .text     ro code   0x800'0358   0x10  startup.o [1]
+                    - 0x800'0368  0x2ac
+
+"P2":                              0x20
+  CSTACK             0x2000'0000   0x20  <Block>
+    CSTACK  uninit   0x2000'0000   0x20  <Block tail>
+                   - 0x2000'0020   0x20
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+   0x800'0368   0x807'ffff  0x7'fc98
+  0x2000'0020  0x2001'ffff  0x1'ffe0
+
+
+*******************************************************************************
+*** STACK USAGE
+***
+
+  Call Graph Root Category  Max Use  Total Use
+  ------------------------  -------  ---------
+  Program entry                 24         24
+  Uncalled function              0          0
+
+
+Program entry
+  "__iar_program_start": 0x800'0359
+
+  Maximum call chain                               24  bytes
+
+    "__iar_program_start"                           8
+    "__cmain"                                       0
+    "main"                                          8
+    "delay(unsigned int)"                           8
+    "void FieldValueBase<TIM2_SR_UIF_Values<TIM2::SR, (unsigned int)0, (unsigned int)1, ReadWriteMode, TIM2::TIM2SRBase>, TIM2::TIM2SRBase, (unsigned int)0>::Set<ReadWriteMode, void>()"
+                                                    0
+
+Uncalled function
+  "InterruptHandler::DummyHandler()": 0x800'0157
+
+  Maximum call chain                                0  bytes
+
+    "InterruptHandler::DummyHandler()"              0
+
+Uncalled function
+  "InterruptHandler::Timer2Handler()": 0x800'0253
+
+  Maximum call chain                                0  bytes
+
+    "InterruptHandler::Timer2Handler()"             0
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module          ro code  ro data  rw data
+    ------          -------  -------  -------
+command line/config:
+    -----------------------------------------
+    Total:
+
+C:\POIP Hub\4.1\Debug\Obj: [1]
+    main.o              558
+    startup.o            20      188
+    -----------------------------------------
+    Total:              578      188
+
+dl7M_tln.a: [2]
+    exit.o                4
+    -----------------------------------------
+    Total:                4
+
+m7M_tls.a: [3]
+    fpinit_M.o           34
+    -----------------------------------------
+    Total:               34
+
+rt7M_tl.a: [4]
+    cexit.o              10
+    cmain.o              30
+    -----------------------------------------
+    Total:               40
+
+shb_l.a: [5]
+    exit.o               20
+    unwind_debug.o                 1
+    -----------------------------------------
+    Total:               20        1
+
+    Gaps                  7
+    Linker created                         32
+---------------------------------------------
+    Grand Total:        683      189       32
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address  Size  Type      Object
+-----                       -------  ----  ----      ------
+?main                    0x800'0315        Code  Gb  cmain.o [4]
+CSTACK$$Base            0x2000'0000         --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'0020         --   Gb  - Linker created -
+InterruptHandler::DummyHandler()
+                         0x800'0157   0x2  Code  Gb  startup.o [1]
+InterruptHandler::Timer2Handler()
+                         0x800'0253   0x2  Code  Gb  startup.o [1]
+Led<GPIOA, (unsigned int)5>::Toggle()
+                         0x800'02c7   0xa  Code  Gb  main.o [1]
+Led<GPIOC, (unsigned int)5>::Toggle()
+                         0x800'02a5   0xa  Code  Gb  main.o [1]
+Led<GPIOC, (unsigned int)8>::Toggle()
+                         0x800'02af   0xc  Code  Gb  main.o [1]
+Led<GPIOC, (unsigned int)9>::Toggle()
+                         0x800'02bb   0xc  Code  Gb  main.o [1]
+Region$$Table$$Base             0x0         --   Gb  - Linker created -
+Region$$Table$$Limit            0x0         --   Gb  - Linker created -
+__cmain                  0x800'0315        Code  Gb  cmain.o [4]
+__exit                   0x800'0345  0x14  Code  Gb  exit.o [5]
+__iar_debug_exceptions   0x800'028e   0x1  Data  Gb  unwind_debug.o [5]
+__iar_init_vfp           0x800'02f1        Code  Gb  fpinit_M.o [3]
+__iar_program_start      0x800'0359  0x10  Code  Gb  startup.o [1]
+__low_level_init         0x800'00bd  0x42  Code  Gb  main.o [1]
+__vector_table           0x800'0000  0xbc  Data  Lc  startup.o [1]
+_call_main               0x800'0321        Code  Gb  cmain.o [4]
+_exit                    0x800'0339        Code  Gb  cexit.o [4]
+_main                    0x800'032f        Code  Gb  cmain.o [4]
+bool FieldValueBase<RCC_CFGR_SWS_Values<RCC::CFGR, (unsigned int)2, (unsigned int)2, ReadMode, RCC::RCCCFGRBase>, RCC::RCCCFGRBase, (unsigned int)0>::IsSet<ReadMode, void>()
+                         0x800'018d  0x18  Code  Gb  main.o [1]
+bool FieldValueBase<RCC_CR_HSIRDY_Values<RCC::CR, (unsigned int)1, (unsigned int)1, ReadMode, RCC::RCCCRBase>, RCC::RCCCRBase, (unsigned int)1>::IsSet<ReadMode, void>()
+                         0x800'016d  0x10  Code  Gb  main.o [1]
+bool FieldValueBase<TIM2_SR_UIF_Values<TIM2::SR, (unsigned int)0, (unsigned int)1, ReadWriteMode, TIM2::TIM2SRBase>, TIM2::TIM2SRBase, (unsigned int)0>::IsSet<ReadWriteMode, void>()
+                         0x800'0291  0x14  Code  Gb  main.o [1]
+delay(unsigned int)      0x800'00ff  0x24  Code  Gb  main.o [1]
+exit                     0x800'0333   0x4  Code  Gb  exit.o [2]
+main                     0x800'0123  0x34  Code  Gb  main.o [1]
+void FieldValueBase<GPIOA_MODER_MODER15_Values<GPIOA::MODER, (unsigned int)10, (unsigned int)2, ReadWriteMode, GPIOA::GPIOAMODERBase>, GPIOA::GPIOAMODERBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'01b9  0x14  Code  Gb  main.o [1]
+void FieldValueBase<GPIOC_MODER_MODER15_Values<GPIOC::MODER, (unsigned int)10, (unsigned int)2, ReadWriteMode, GPIOC::GPIOCMODERBase>, GPIOC::GPIOCMODERBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'01e1  0x14  Code  Gb  main.o [1]
+void FieldValueBase<GPIOC_MODER_MODER15_Values<GPIOC::MODER, (unsigned int)16, (unsigned int)2, ReadWriteMode, GPIOC::GPIOCMODERBase>, GPIOC::GPIOCMODERBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'01f5  0x14  Code  Gb  main.o [1]
+void FieldValueBase<GPIOC_MODER_MODER15_Values<GPIOC::MODER, (unsigned int)18, (unsigned int)2, ReadWriteMode, GPIOC::GPIOCMODERBase>, GPIOC::GPIOCMODERBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'0209  0x14  Code  Gb  main.o [1]
+void FieldValueBase<GPIOC_MODER_MODER15_Values<GPIOC::MODER, (unsigned int)26, (unsigned int)2, ReadWriteMode, GPIOC::GPIOCMODERBase>, GPIOC::GPIOCMODERBase, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'021d  0x10  Code  Gb  main.o [1]
+void FieldValueBase<RCC_AHB1ENR_DMA2EN_Values<RCC::AHB1ENR, (unsigned int)0, (unsigned int)1, ReadWriteMode, RCC::RCCAHB1ENRBase>, RCC::RCCAHB1ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'01a5  0x14  Code  Gb  main.o [1]
+void FieldValueBase<RCC_AHB1ENR_DMA2EN_Values<RCC::AHB1ENR, (unsigned int)2, (unsigned int)1, ReadWriteMode, RCC::RCCAHB1ENRBase>, RCC::RCCAHB1ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'01cd  0x14  Code  Gb  main.o [1]
+void FieldValueBase<RCC_AHB1ENR_DMA2EN_Values<RCC::APB1ENR, (unsigned int)0, (unsigned int)1, ReadWriteMode, RCC::RCCAPB1ENRBase>, RCC::RCCAPB1ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'022d  0x14  Code  Gb  main.o [1]
+void FieldValueBase<RCC_CFGR_SW_Values<RCC::CFGR, (unsigned int)0, (unsigned int)2, ReadWriteMode, RCC::RCCCFGRBase>, RCC::RCCCFGRBase, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'017d  0x10  Code  Gb  main.o [1]
+void FieldValueBase<RCC_CR_HSION_Values<RCC::CR, (unsigned int)0, (unsigned int)1, ReadWriteMode, RCC::RCCCRBase>, RCC::RCCCRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'0159  0x14  Code  Gb  main.o [1]
+void FieldValueBase<TIM2_CR1_CEN_Values<TIM2::CR1, (unsigned int)0, (unsigned int)1, ReadWriteMode, TIM2::TIM2CR1Base>, TIM2::TIM2CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'027d  0x12  Code  Gb  main.o [1]
+void FieldValueBase<TIM2_CR1_URS_Values<TIM2::CR1, (unsigned int)2, (unsigned int)1, ReadWriteMode, TIM2::TIM2CR1Base>, TIM2::TIM2CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'0241  0x12  Code  Gb  main.o [1]
+void FieldValueBase<TIM2_SR_UIF_Values<TIM2::SR, (unsigned int)0, (unsigned int)1, ReadWriteMode, TIM2::TIM2SRBase>, TIM2::TIM2SRBase, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'0261  0x10  Code  Gb  main.o [1]
+void RegisterBase<(unsigned int)1073741860, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'0271   0xc  Code  Gb  main.o [1]
+void RegisterBase<(unsigned int)1073741868, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'0255   0xc  Code  Gb  main.o [1]
+void RegisterBase<(unsigned int)1073872916, (unsigned int)32, ReadWriteMode>::Toggle<ReadWriteMode, void>(unsigned int)
+                         0x800'02e1  0x10  Code  Gb  main.o [1]
+void RegisterBase<(unsigned int)1073874964, (unsigned int)32, ReadWriteMode>::Toggle<ReadWriteMode, void>(unsigned int)
+                         0x800'02d1  0x10  Code  Gb  main.o [1]
+
+
+[1] = C:\POIP Hub\4.1\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  683 bytes of readonly  code memory
+  189 bytes of readonly  data memory
+   32 bytes of readwrite data memory
+
+Errors: none
+Warnings: 1
