@@ -42,8 +42,7 @@ Write(16'000 *delay) позволяет писать вместо delay нужн
 Через функцию struct реализуем кнопку и включение/выключения диода функцией Tonggle
 
 ----
-struct Button  //Realizuem knopku (chtobi nuzhno bilo tol'ko nazhimat')
- {
+
    static bool IsPressed() //Zadaem nazhatie
    {
      bool result = false;
